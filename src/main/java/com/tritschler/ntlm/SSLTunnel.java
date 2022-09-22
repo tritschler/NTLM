@@ -3,7 +3,7 @@ package com.tritschler.ntlm;
 import java.net.*;
 import java.io.*;
 import javax.net.ssl.*;
-//import com.sun.security.auth.module.NTSystem;   // TODO: try to remove to be Windows independent ??
+//import com.sun.security.auth.module.NTSystem;   // TODO: try to remove to be Windows independent
 
 
 /**
