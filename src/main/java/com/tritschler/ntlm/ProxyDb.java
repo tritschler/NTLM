@@ -42,7 +42,7 @@ public class ProxyDb  {
 
 	private static final String DSN_DEFAULT_NAME        = "ATSI";
 	private static final String DSN_DEFAULT_USER        = "user1";
-	private static final String DSN_DEFAULT_PASS        = "lucdbo";
+	private static final String DSN_DEFAULT_PASS        = "tbd";
 		
 	// Applet parameters names : change them carefully because some names 
 	// are in the HTML page and others may be in local configuration file.
@@ -81,8 +81,8 @@ public class ProxyDb  {
 	private static final String SSL_SESSION_OK          = "SSL established with: ";
 	private static final String INVALID_MSG             = "invalid message";
 	private static final String CERT_NOT_INSTALLED      = "Faild to install Certificate";
-	private static final String CALL_MENSURA            = "Please contact the OAsys help desk";
-    private static final String WAIT_REQUEST            = "waiting request from Server ...";
+	private static final String CALL_HELPDESK           = "Please contact the help desk";
+        private static final String WAIT_REQUEST            = "waiting request from Server ...";
 	private static final String ERR_NO_AUTH_OK          = "Applet authentication failure with Server.";
 	private static final String ERR_AUTH_OK             = "Applet did not expect AUTH_OK";
 	private static final String ERR_DB_CONNECT          = "Applet can't connect to local DB.";
@@ -188,7 +188,7 @@ public class ProxyDb  {
 			System.out.println("No directory with write access found (using defaults, no logging)");
 		}
 		else {
-		   keyStore = homeDir + File.separator + "oasys.ks";
+		   keyStore = homeDir + File.separator + "mykeystore.ks";
 		   params.put(PARAM_KEYSTORE, keyStore);
 		   logfile = homeDir + File.separator + APPLICATION + ".log";
 		}
@@ -211,7 +211,7 @@ public class ProxyDb  {
 		    }
 		}
 		info("------------------- Applet starting (" + this.hashCode()+ ") ------------------- "); 
-		info("Menusra host: " + (String)params.get(PARAM_HOST) + ":" +  (String)params.get(PARAM_PORT));
+		info("Host: " + (String)params.get(PARAM_HOST) + ":" +  (String)params.get(PARAM_PORT));
 		info("Working dir : " + homeDir);
 		if (nInstances == 1) { 
 			loadConfigFile();			
@@ -219,15 +219,13 @@ public class ProxyDb  {
 		}
 	}
 	
-	private boolean setupSsl() {
-		
+	private boolean setupSsl() {	
 		isSsl = (((String)params.get(PARAM_SSL)).equals(YES));
 		
         if (isSsl) {
         	
             // SSL 
         	      
-      
      	    System.setProperty("javax.net.ssl.trustStore", keyStore);
      	    System.setProperty("javax.net.ssl.trustStorePassword", (String)params.get(PARAM_KEYSTORE_PASS));
      	
@@ -243,7 +241,7 @@ public class ProxyDb  {
      	        // failed to install certificate
      	        	
      	    	severe(errmsg);
-     	    	MainWindow.call("displaymessage", new String [] {errmsg + " " + CALL_MENSURA});
+     	    	MainWindow.call("displaymessage", new String [] {errmsg + " " + CALL_HELPDESK});
      	        return false;
      	        
      	    }
