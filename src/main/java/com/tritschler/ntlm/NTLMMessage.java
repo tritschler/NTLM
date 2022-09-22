@@ -8,7 +8,7 @@ package com.tritschler.ntlm;
  * call the buildMessage() method.
  * <br>Be carefull because there is NO enforcement mechanism for the setters.
  * 
- * @author <a href="mailto:tritschler.marc@gmail.com">marc.tritschler@c-w.be</a>
+ * @author <a href="mailto:tritschler.marc@gmail.com">tritschler.marc@gmail.com</a>
  */
 public class NTLMMessage {
 
