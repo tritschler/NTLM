@@ -6,9 +6,8 @@ Since NTLM is not publicly documented, this project is the result of several wee
 NTLM is mainly used to authenticate users to proxies in windoze environments
 
 This project does a little more than NTLM:
-* it establishes local DB connection, performs SQL to retrieve some info
-* it performs NTLM authentication
-* sends
-* data via a SSL tunnel
-* 
-Was developped inside a java Applet, refactoring needed to include in modern java apps
+* it establishes local DB connection, executes SQL select to retrieve some info
+* it performs NTLM authentication (challenge/response)
+* sends the data outside via SSL tunnel
+
+Since it was developped to execute into a java Applet some refactoring is needed to include in modern java apps
