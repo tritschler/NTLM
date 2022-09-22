@@ -3,7 +3,7 @@ package com.tritschler.ntlm;
 /**
  * Buffer Management
  * 
- * @author <a href="mailto:marc.tritschler@c-w.be">marc.tritschler@c-w.be</a>
+ * @author <a href="mailto:tritschler.marc@gmail.com">tritschler.marc@gmail.com</a>
  *
  */
 public class HexBuff {
