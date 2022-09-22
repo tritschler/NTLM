@@ -344,7 +344,7 @@ public class ProxyDb  {
 		
 		if (homeDir == null) return;
 		
-		String cfgfile = homeDir + File.separator + "oasys.cfg"; 
+		String cfgfile = homeDir + File.separator + "company.cfg"; 
 		
 	    File f = new File(cfgfile);	    
 	    
@@ -411,7 +411,7 @@ public class ProxyDb  {
         SSLSocket                  ssl_socket;
         ObjectOutputStream         oos;
         ObjectInputStream          ois;
-        //com.oasys.applet.commons.DbTable   rec;
+        //com.company.applet.commons.DbTable   rec;
         int                        start_rec;            // index of first record requested 
     	int                        max_recs;             // max nb records requested
     	int                        tot_nr_rec = 0;       // total nb records of 1 resultset
@@ -525,7 +525,7 @@ public class ProxyDb  {
 			        
 			    // received other message than AUTH_OK 			        
 			    			    
-			    terminate(RC_ERROR, ERR_NO_AUTH_OK, CALL_MENSURA);
+			    terminate(RC_ERROR, ERR_NO_AUTH_OK, CALL_HELPDESK);
 			    return;
 			}*/
 			
@@ -655,7 +655,7 @@ public class ProxyDb  {
 							msgout.setParam(p);
 							
 							msgout.setNbNext(nb_recs-i-1);              // nb of messages after this message							        		
-							rec = new com.oasys.applet.commons.DbTable(flds);
+							rec = new com.company.applet.commons.DbTable(flds);
 							rec.setValues(rs);							             
 							msgout.setRecord(rec);							        	
 							send(oos, msgout);								        
@@ -740,7 +740,7 @@ public class ProxyDb  {
 		catch (Exception e) {
 			try {
 			    if (pw != null) e.printStackTrace(pw);
-			    terminate(RC_ERROR, "Communication error", CALL_MENSURA);
+			    terminate(RC_ERROR, "Communication error", CALL_HELPDESK);
 	            String error = "Exception in start() method : " + e.getMessage();
 	            severe(error);
 		        int delay = getDelay();
@@ -883,7 +883,7 @@ public class ProxyDb  {
 
     private String getWorkingDir() {
     	
-    	File f1 = new File("c:\\mensura");
+    	File f1 = new File("c:\\company");
 		File f2 = new File(System.getProperty("user.home"));
 		File f3 = new File(System.getProperty("java.io.tmpdir"));
 		
